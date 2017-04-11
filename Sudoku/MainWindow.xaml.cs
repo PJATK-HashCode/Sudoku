@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Sudoku.model;
+using Sudoku.service;
 
 namespace Sudoku
 {
@@ -27,10 +29,17 @@ namespace Sudoku
 
         private void NewGameClick(object sender, RoutedEventArgs e)
         {
+            Game game = new Game();
+            GameService gameService = new GameService(game);
 
         }
 
         private void ResetButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckButtonClick(object sender, RoutedEventArgs e)
         {
 
         }

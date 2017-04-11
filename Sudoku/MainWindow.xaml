@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sudoku"
         mc:Ignorable="d"
         Title="Sudoku" Height="350" Width="525">
     <Grid >
@@ -36,10 +35,10 @@
                 VerticalAlignment="Top" Width="106">
             <Button Content="Nowa gra" Click="NewGameClick" />
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="118" Margin="10,10,0,0"
-                VerticalAlignment="Top" Width="106">
-            <TextBlock TextWrapping="Wrap" Text="WYNIK:" HorizontalAlignment="Center" FontFamily="Calibri"
-                       FontWeight="DemiBold" FontSize="18" Margin="23,0,23,90" />
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="88" Margin="10,10,0,0"
+                VerticalAlignment="Top" Width="106"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="27" Margin="10,103,0,0" VerticalAlignment="Top" Width="106">
+            <Button Content="Sprawdź" Click="CheckButtonClick"/>
         </Border>
 
 
