@@ -25,12 +25,12 @@ namespace Sudoku
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void NewGameClick(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ResetButtonClick(object sender, RoutedEventArgs e)
         {
 
         }
