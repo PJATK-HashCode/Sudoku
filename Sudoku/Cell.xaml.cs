@@ -23,6 +23,6 @@ namespace Sudoku
         public Cell()
         {
             InitializeComponent();
-                    }
+        }
     }
 }

@@ -15,36 +15,31 @@ using System.Windows.Shapes;
 
 namespace Sudoku
 {
-    /// <summary>
-    /// Interaction logic for Board.xaml
-    /// </summary>
     public partial class Board : UserControl
     {
-        private BoardZone[,] _zones;
+        private Cell[,] _cells;
 
         public Board()
         {
             InitializeComponent();
-           
-            _zones = new BoardZone[3,3];
-            StackPanel verticalStackPanel = new StackPanel() { Orientation = Orientation.Vertical };
+
+            _cells = new Cell[3, 3];
+
+            StackPanel verticalStackPanel = new StackPanel() {Orientation = Orientation.Vertical};
 
             for (int i = 0; i < 3; i++)
             {
-                StackPanel horizontalStackPanel = new StackPanel() { Orientation = Orientation.Horizontal };
+                StackPanel horizontalStackPanel = new StackPanel() {Orientation = Orientation.Horizontal};
 
-                for (int j = 0; j <3 ; j++)
+                for (int j = 0; j < 3; j++)
                 {
-                    BoardZone zone = new BoardZone();
-                    _zones[i, j] = zone;
-                    horizontalStackPanel.Children.Add(zone);
+                    Cell cell = new Cell();
+                    _cells[i, j] = cell;
+                    horizontalStackPanel.Children.Add(cell);
                 }
-
                 verticalStackPanel.Children.Add(horizontalStackPanel);
             }
-            this.SudokuBoardContainer.Child = verticalStackPanel;
-
+            this.CellContainer.Child = verticalStackPanel;
         }
-
     }
 }

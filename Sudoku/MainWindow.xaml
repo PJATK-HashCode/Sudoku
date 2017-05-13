@@ -20,7 +20,7 @@
 
             <Rectangle Fill="Black" Height="7" Stroke="Black" Width="322" Margin="0,150,0,0" />
         </StackPanel>
-        <Border x:Name="GridCointainer" Height="1020" Padding="20"
+        <Border x:Name="BoardCointainer" Height="1020" Padding="20"
                 Width="1550" />
     </DockPanel>
 </Window>
