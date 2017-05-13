@@ -22,26 +22,40 @@ namespace Sudoku
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static Board _board = new Board();
+        private static BoardZone[,] _zones;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
+          //  this.GridCointainer.Child = _board;
+            InitializeComponent();
 
-        private void NewGameClick(object sender, RoutedEventArgs e)
-        {
-            Game game = new Game();
-            GameService gameService = new GameService(game);
+            _zones = new BoardZone[3, 3];
+            StackPanel gridStackPanel = new StackPanel() { Orientation = Orientation.Vertical };
 
-        }
+            for (int i = 0; i < 3; i++)
+            {
+                StackPanel rowStackPanel = new StackPanel() { Orientation = Orientation.Horizontal };
 
-        private void ResetButtonClick(object sender, RoutedEventArgs e)
-        {
+                for (int j = 0; j < 3; j++)
+                {
+                    BoardZone zone = new BoardZone();
+                    _zones[i, j] = zone;
+                    rowStackPanel.Children.Add(zone);
+                }
 
-        }
-
-        private void CheckButtonClick(object sender, RoutedEventArgs e)
-        {
+                gridStackPanel.Children.Add(rowStackPanel);
+            }
+            this.GridCointainer.Child = gridStackPanel;
 
         }
     }
+
+  
+
+     
+        
+      
+    
 }
