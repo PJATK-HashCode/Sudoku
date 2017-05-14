@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:Sudoku"
              mc:Ignorable="d">
     <TextBox x:Name="CellListBox"
-             
-             Width="167"
-             Height="107"
+             Width="108"
+             Height="74"
+             Text="{Binding CellContent}"
+           
              />
 </UserControl>

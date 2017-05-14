@@ -4,23 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Sudoku" Height="1080" Width="1920">
+        Title="Sudoku" Height="720" Width="1280"
+        ResizeMode="NoResize">
     <DockPanel>
-        <StackPanel>
-
+        <Rectangle Height="676" Fill="Black" Margin="0,0,0,0" VerticalAlignment="Top" Width="2"/>
+        <StackPanel Height="Auto" Width="270" >
+            <Rectangle Fill="Black" Height="3" Stroke="Black" Width="322" Margin="0,0,0,0" />
             <TextBlock Height="82" TextWrapping="Wrap" Text="Czas: " Width="270" FontSize="50"
                        Margin="0,25,0,0" TextAlignment="Center" FontWeight="DemiBold" />
 
-            <TextBlock Height="82" TextWrapping="Wrap" Text="{Binding}" Width="270" FontSize="50"
+            <TextBlock Height="82" Name="ScheduledTime" TextWrapping="Wrap" Text="{Binding ScheduledTime}" Width="270" FontSize="50"
                        Margin="0,25,0,0" TextAlignment="Center" FontWeight="DemiBold" />
-            <Rectangle Fill="Black" Height="7" Stroke="Black" Width="322" Margin="0,10,0,0" />
-            <Image x:Name="Logo" Height="300" Width="300" Source="resources/logo-pjatk.png" Margin="10,500,-2,-728" />
-            <Button Content="Nowa Gra" Height="96" Width="296" FontSize="35" Margin="5,0,0,0" />
-            <Button Content="Sprawdź" Height="96" Width="296" FontSize="35" Margin="5,10,0,0" />
+            <Rectangle Fill="Black" Height="3" Stroke="Black" Width="322" Margin="0,10,0,0" />
+            <Button Content="Nowa gra" Height="Auto" Width="Auto" FontSize="35" Margin="5,5,5,0" Background="AliceBlue" Click="New_Game"/>
+            <Button Content="Sprawdź" Height="Auto" Width="Auto" FontSize="35" Margin="5,5,5,0" Background="AliceBlue" />
+            <Button Content="Wyczyść planszę" Height="Auto" Width="Auto" FontSize="35" Margin="5,5,5,0" Background="AliceBlue" />
+            <Rectangle Fill="Black" Height="3" Stroke="Black" Width="322" Margin="0,5,0,0" />
+            <Image x:Name="Logo" Height="Auto" Width="250" Source="resources/logo-pjatk.png" Margin="0,10,0,0" />
+            <Rectangle Fill="Black" Height="3" Stroke="Black" Margin="0,8,0,0" />
 
-            <Rectangle Fill="Black" Height="7" Stroke="Black" Width="322" Margin="0,150,0,0" />
         </StackPanel>
-        <Border x:Name="BoardCointainer" Height="1020" Padding="20"
-                Width="1550" />
+        <Rectangle Height="676" Fill="Black" Margin="0,0,0,0" VerticalAlignment="Top" Width="2"/>
+        <Border x:Name="BoardCointainer" Height="680" 
+                Width="980" />
+
     </DockPanel>
 </Window>

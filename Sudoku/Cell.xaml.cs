@@ -24,5 +24,11 @@ namespace Sudoku
         {
             InitializeComponent();
         }
+
+        public void Content(String s)
+        {
+            this.CellListBox.Text = s;
+
+        }
     }
 }
