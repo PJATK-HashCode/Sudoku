@@ -75,7 +75,7 @@ namespace Sudoku
                 sum = 1;
                 Puzzles();
             }
-            return GenerateArray();
+            return _sudokuArray;
         }
 
         private int[,] GenerateArray()
