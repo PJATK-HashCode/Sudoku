@@ -9,6 +9,7 @@
              Width="108"
              Height="74"
              Text="{Binding CellContent}"
-           
+             IsReadOnly="True"
+             MouseDoubleClick="CellListBox_OnMouseDoubleClick"
              />
 </UserControl>

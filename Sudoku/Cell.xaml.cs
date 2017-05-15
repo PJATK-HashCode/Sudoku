@@ -20,6 +20,8 @@ namespace Sudoku
     /// </summary>
     public partial class Cell : UserControl
     {
+        private Window _window;
+
         public Cell()
         {
             InitializeComponent();
@@ -28,7 +30,36 @@ namespace Sudoku
         public void Content(String s)
         {
             this.CellListBox.Text = s;
+        }
 
+        private void CellListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (MainWindow.IsGameStarted)
+            {
+                CellListBox.Background = Brushes.Aqua;
+                ListOfNumber listOfNumber = new ListOfNumber(this);
+
+                var mousePoint = Mouse.GetPosition(Application.Current.MainWindow);
+
+                _window = new Window()
+                {
+                    ResizeMode = ResizeMode.NoResize,
+                    WindowStartupLocation = WindowStartupLocation.Manual,
+                    Left = mousePoint.X,
+                    Top = mousePoint.Y,
+                    Height = 220,
+                    Width = 20,
+                    Content = listOfNumber
+                };
+
+                _window.ShowDialog();
+            }
+        }
+
+        public void CloseWindow()
+        {
+            _window.Close();
+            CellListBox.Background = Brushes.White;
         }
     }
 }
