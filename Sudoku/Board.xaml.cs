@@ -69,13 +69,15 @@ namespace Sudoku
                 {
                     sum *= _sudokuArray[i, j];
                 }
+    
+
+            if (sum != CONTROL_NUMBER)
+            {
+                sum = 1;
+                Puzzles();
             }
-//            if (sum != CONTROL_NUMBER)
-//            {
-//                sum = 1;
-//                Puzzles();
-//            }
-            return GenerateArray();
+            return _sudokuArray;
+
         }
 
         private int[,] GenerateArray()
