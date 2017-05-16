@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,29 +37,25 @@ namespace Sudoku
         {
             if (MainWindow.IsGameStarted)
             {
-                CellListBox.Background = Brushes.Aqua;
                 NumberSelector numberSelector = new NumberSelector(this);
-                var mousePoint = Mouse.GetPosition(Application.Current.MainWindow);
 
                 _window = new Window()
                 {
                     ResizeMode = ResizeMode.NoResize,
-                    WindowStartupLocation = WindowStartupLocation.Manual,
-                    Left = mousePoint.X,
-                    Top = mousePoint.Y,
-                    Height = 249,
-                    Width = 225,
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                    WindowStyle = WindowStyle.None,
+                    Height = 210,
+                    Width = 210,
                     Content = numberSelector
                 };
-
                 _window.ShowDialog();
+                    
             }
         }
 
         public void CloseWindow()
         {
             _window.Close();
-            CellListBox.Background = Brushes.GhostWhite;
         }
 
 

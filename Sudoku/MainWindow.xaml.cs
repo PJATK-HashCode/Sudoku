@@ -51,7 +51,9 @@ namespace Sudoku
 
                 verticalStackPanel.Children.Add(horizonstalStackPanel);
             }
+            
             this.BoardCointainer.Child = verticalStackPanel;
+            
         }
 
 
@@ -68,5 +70,10 @@ namespace Sudoku
         }
 
         public static bool IsGameStarted => _isGameStarted;
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
