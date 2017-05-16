@@ -126,6 +126,9 @@
   <ItemGroup>
     <Resource Include="resources\logo-pjatk.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="resources\hlogo.png" />
+    <Resource Include="resources\PJATK.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
