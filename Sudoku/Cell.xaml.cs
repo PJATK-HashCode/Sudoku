@@ -37,8 +37,7 @@ namespace Sudoku
             if (MainWindow.IsGameStarted)
             {
                 CellListBox.Background = Brushes.Aqua;
-                ListOfNumber listOfNumber = new ListOfNumber(this);
-
+                NumberSelector numberSelector = new NumberSelector(this);
                 var mousePoint = Mouse.GetPosition(Application.Current.MainWindow);
 
                 _window = new Window()
@@ -47,9 +46,9 @@ namespace Sudoku
                     WindowStartupLocation = WindowStartupLocation.Manual,
                     Left = mousePoint.X,
                     Top = mousePoint.Y,
-                    Height = 220,
-                    Width = 20,
-                    Content = listOfNumber
+                    Height = 249,
+                    Width = 225,
+                    Content = numberSelector
                 };
 
                 _window.ShowDialog();
@@ -59,7 +58,9 @@ namespace Sudoku
         public void CloseWindow()
         {
             _window.Close();
-            CellListBox.Background = Brushes.White;
+            CellListBox.Background = Brushes.GhostWhite;
         }
+
+
     }
 }

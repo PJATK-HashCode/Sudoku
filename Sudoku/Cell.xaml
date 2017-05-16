@@ -9,6 +9,10 @@
              Width="108"
              Height="74"
              Text="{Binding CellContent}"
+             FontSize="50"
+             FontFamily="Helvetica"
+             TextAlignment="Center"
+             Background="GhostWhite"
              IsReadOnly="True"
              MouseDoubleClick="CellListBox_OnMouseDoubleClick"
              />
