@@ -39,7 +39,7 @@ namespace Sudoku
                 {
                     NumberButton nb = new NumberButton(cell);
                     _button[i, j] = nb;                  
-                    nb.ButtonNumber.Content = k;
+                    nb.ButtonNumber.Content = k.ToString();
                     k++;
                     horizonstalStackPanel.Children.Add(nb);
                 }

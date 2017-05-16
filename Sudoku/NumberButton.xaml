@@ -8,5 +8,5 @@
          
         >
     <Button x:Name="ButtonNumber" Width="70" Height="70" FontSize="20" FontWeight="ExtraBlack"
-            Background="AntiqueWhite" Click="ButtonNumber_Click" />
+            Background="AntiqueWhite" Click="ButtonNumber_Click" ClickMode="Hover" />
 </UserControl>
