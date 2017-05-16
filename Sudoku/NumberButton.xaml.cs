@@ -16,30 +16,21 @@ using System.Windows.Shapes;
 namespace Sudoku
 {
     /// <summary>
-    /// Interaction logic for ListOfNumber.xaml
+    /// Interaction logic for NumberButton.xaml
     /// </summary>
-    public partial class ListOfNumber : UserControl
+    public partial class NumberButton : UserControl
     {
         public Cell Cell { get; set; }
 
-        public ListOfNumber(Cell cell)
+        public NumberButton(Cell cell)
         {
             this.Cell = cell;
             InitializeComponent();
-            FillBox();
         }
 
-        private void FillBox()
+        private void ButtonNumber_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 1; i < 10; i++)
-            {
-                List.Items.Add(i);
-            }
-        }
-
-        private void ListOfNumber_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Cell.CellListBox.Text = List.SelectedItem.ToString();
+            Cell.CellListBox.Text = ButtonNumber.Content.ToString();
             Cell.CloseWindow();
         }
     }
