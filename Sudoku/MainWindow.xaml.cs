@@ -24,7 +24,7 @@ namespace Sudoku
     public partial class MainWindow : Window
     {
         private static Board[,] _board;
-        private int _timeCounter;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -50,36 +50,29 @@ namespace Sudoku
 
                 verticalStackPanel.Children.Add(horizonstalStackPanel);
             }
+            
             this.BoardCointainer.Child = verticalStackPanel;
+            
         }
-
-        private void ScheduledTimer()
-        {
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan();
-            timer.Tick += TimerTick;
-            timer.Start();
-
-        }
-
-        private void TimerTick(object sender, EventArgs e)
-        {
-            _timeCounter++;
-            ScheduledTime.Text = _timeCounter.ToString();
-        }
-
 
 
         private void New_Game(object sender, RoutedEventArgs e)
         {
-            ScheduledTimer();
+            IsGameStarted = true;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    _board[i,j].PopulateBoard();
+                    _board[i, j].PopulateBoard();
                 }
             }
+        }
+
+        public static bool IsGameStarted { get; private set; } = false;
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
