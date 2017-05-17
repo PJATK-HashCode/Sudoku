@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace Sudoku
 {
     /// <summary>
-    /// Interaction logic for NumberSelector.xaml
+    /// Interaction logic for NumberBoard.xaml
     /// </summary>
-    public partial class NumberSelector : UserControl
+    public partial class NumberBoard : UserControl
     {
         private readonly NumberButton[,] _button = new NumberButton[3, 3];
         public Cell Cell { get; set; }
 
-        public NumberSelector(Cell cell)
+        public NumberBoard(Cell cell)
         {
             this.Cell = cell;
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace Sudoku
             for (int i = 0; i < 3; i++)
             {
                 StackPanel horizonstalStackPanel = new StackPanel() {Orientation = Orientation.Horizontal};
-
+                
                 for (int j = 0; j < 3; j++)
                 {
                     NumberButton nb = new NumberButton(cell);

@@ -24,7 +24,6 @@ namespace Sudoku
     public partial class MainWindow : Window
     {
         private static Board[,] _board;
-        private static Boolean _isGameStarted = false;
 
         public MainWindow()
         {
@@ -59,7 +58,7 @@ namespace Sudoku
 
         private void New_Game(object sender, RoutedEventArgs e)
         {
-            _isGameStarted = true;
+            IsGameStarted = true;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -69,7 +68,7 @@ namespace Sudoku
             }
         }
 
-        public static bool IsGameStarted => _isGameStarted;
+        public static bool IsGameStarted { get; private set; } = false;
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {

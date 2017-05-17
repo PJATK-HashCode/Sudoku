@@ -7,25 +7,37 @@
         Title="Sudoku" Height="Auto" Width="Auto"
         WindowState="Maximized"
         WindowStyle="None"
-        Background="LightSlateGray">
+        Background="{DynamicResource MaterialDesignPaper}">
 
 
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightSlateGray" >
-            <Border x:Name="BoardCointainer" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Center"
-                    Width="Auto" />
-       
-            <DockPanel  Height="Auto" Width="Auto" VerticalAlignment="Bottom" Margin="0,10,0,0" Background="LightSlateGray" >
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"
+                Background="{DynamicResource MaterialDesignPaper}">
+        <Image Width="Auto" Height="125" Source="resources/PJATK.png" VerticalAlignment="Top"
+               HorizontalAlignment="Center" Margin="0,-20,0,35" />
+        <Border x:Name="BoardCointainer" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Center"
+                BorderBrush="{DynamicResource MaterialDesignBackground}"
+                Width="Auto" />
 
-                <Button Content="Nowa gra" Height="50" Width="250" FontSize="30" Margin="5,5,5,0" Background="DarkSlateGray" FontFamily="Helvetica" FontWeight="SemiBold"
-                        Click="New_Game" />
-                <Button Content="Sprawdź" Height="50" Width="250" FontSize="30" Margin="5,5,5,0" Background="DarkSlateGray" FontFamily="Helvetica" FontWeight="SemiBold" />
-                <Button Content="Wyczyść planszę" Height="50" Width="250" FontSize="30" Margin="5,5,5,0" FontFamily="Helvetica" FontWeight="SemiBold"
-                        Background="DarkSlateGray" />
-                <Button Content="Wyjdź" FontFamily="Helvetica" FontWeight="SemiBold" Height="50" Width="250" FontSize="30" Margin="5,5,5,0" Background="DarkSlateGray"
-                        Click="Exit_Button_Click" />
+        <DockPanel Height="Auto" Width="Auto" VerticalAlignment="Bottom" Margin="0,15,0,0"
+                   Background="{DynamicResource MaterialDesignPaper}">
+
+            <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Nowa gra" Height="50" Width="275"
+                    FontSize="30" Margin="5,25,5,0"
+                    FontFamily="Helvetica"
+                    Click="New_Game" />
+            <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Sprawdź" Height="50" Width="275"
+                    FontSize="30" Margin="5,25,5,0"
+                    FontFamily="Helvetica" FontWeight="SemiBold" />
+            <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Wyczyść planszę" Height="50"
+                    Width="275" FontSize="30" Margin="5,25,5,0"
+                    FontFamily="Helvetica" />
+            <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Wyjdź" FontFamily="Helvetica"
+                    Height="50" Width="275" FontSize="30" Margin="5,25,5,0"
+
+                    Click="Exit_Button_Click" />
 
         </DockPanel>
-        </StackPanel>
-       
-    
+    </StackPanel>
+
+
 </Window>

@@ -37,16 +37,16 @@ namespace Sudoku
         {
             if (MainWindow.IsGameStarted)
             {
-                NumberSelector numberSelector = new NumberSelector(this);
+                NumberBoard numberBoard = new NumberBoard(this);
 
                 _window = new Window()
                 {
                     ResizeMode = ResizeMode.NoResize,
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
                     WindowStyle = WindowStyle.None,
-                    Height = 210,
-                    Width = 210,
-                    Content = numberSelector
+                    Height = 211,
+                    Width = 211,
+                    Content = numberBoard
                 };
                 _window.ShowDialog();
                     
