@@ -70,7 +70,11 @@ namespace Sudoku
                     sum *= _sudokuArray[i, j];
                 }
             }
-
+//            if (sum != CONTROL_NUMBER)
+//            {
+//                sum = 1;
+//                Puzzles();
+//            }
             return GenerateArray();
         }
 
