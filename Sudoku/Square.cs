@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sudoku
 {
+
+    /// <summary>
+    /// Moja piękna struktura do mojego pięknego algorytmu, nie usuwać kiedyś naprawie
+    /// jMerta
+    /// </summary>
     struct Square
     {
         public int across { get; set; }

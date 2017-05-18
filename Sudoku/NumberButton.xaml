@@ -9,7 +9,7 @@
             BorderBrush="Black"
             BorderThickness="1.5"
             Style="{DynamicResource MaterialDesignRaisedLightButton}"
-            Click="ButtonNumber_Click" ClickMode="Hover"
+            Click="ButtonNumber_Click" ClickMode="Press"
             FontWeight="DemiBold"
             FontFamily="Helvetica"
             Padding="1" />

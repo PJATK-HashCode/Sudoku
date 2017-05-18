@@ -41,9 +41,27 @@ namespace Sudoku
         private void New_Game(object sender, RoutedEventArgs e)
         {
             IsGameStarted = true;
-            Board.fillCells();
+            for (int i = 0; i<9; i++)
+            {
+                for (int j = 0; j<9; j++)
+                {
+                    Board._sudokuBoard[i, j] = Board._sudokuTemplate[i, j];
+                }
+            }
+            Board.fillBoard();
             Board.counter++;
 
+
+        }
+
+        private void Check_Game(object sender, RoutedEventArgs e)
+        {
+            if (IsGameStarted)
+            {
+                if (Board.check()){
+                    Application.Current.Shutdown();
+                }
+            }
 
         }
 
