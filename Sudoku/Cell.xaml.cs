@@ -22,7 +22,7 @@ namespace Sudoku
     public partial class Cell : UserControl
     {
         private Window _window;
-
+     
         public Cell()
         {
             InitializeComponent();

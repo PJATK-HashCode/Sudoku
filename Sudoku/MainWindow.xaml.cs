@@ -59,11 +59,13 @@ namespace Sudoku
         private void New_Game(object sender, RoutedEventArgs e)
         {
             IsGameStarted = true;
+
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    _board[i, j].PopulateBoard();
+                    _board[i, j].fillCells();
+                    _board[i, j].counter++;
                 }
             }
         }
