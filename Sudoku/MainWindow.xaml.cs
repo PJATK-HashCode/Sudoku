@@ -23,7 +23,7 @@ namespace Sudoku
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static Board[,] _board;
+        private static readonly Board Board = new Board();
 
         public MainWindow()
         {
@@ -34,40 +34,17 @@ namespace Sudoku
 
         private void InitializeBoard()
         {
-            _board = new Board[3, 3];
-            StackPanel verticalStackPanel = new StackPanel() {Orientation = Orientation.Vertical};
-
-            for (int i = 0; i < 3; i++)
-            {
-                StackPanel horizonstalStackPanel = new StackPanel() {Orientation = Orientation.Horizontal};
-
-                for (int j = 0; j < 3; j++)
-                {
-                    Board zone = new Board();
-                    _board[i, j] = zone;
-                    horizonstalStackPanel.Children.Add(zone);
-                }
-
-                verticalStackPanel.Children.Add(horizonstalStackPanel);
-            }
-            
-            this.BoardCointainer.Child = verticalStackPanel;
-            
+            this.BoardCointainer.Child = Board;
         }
 
 
         private void New_Game(object sender, RoutedEventArgs e)
         {
             IsGameStarted = true;
+            Board.fillCells();
+            Board.counter++;
 
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    _board[i, j].fillCells();
-                    _board[i, j].counter++;
-                }
-            }
+
         }
 
         public static bool IsGameStarted { get; private set; } = false;
