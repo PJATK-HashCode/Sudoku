@@ -11,7 +11,7 @@ namespace SudokuTests
         {
             Board board = new Board();
 
-            board.
+          
 
         }
 

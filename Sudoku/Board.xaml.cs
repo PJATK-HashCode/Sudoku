@@ -18,57 +18,58 @@ namespace Sudoku
 {
     public partial class Board : UserControl
     {
-        private List<Square> squares = new List<Square>(81);
+        // private List<Square> squares = new List<Square>(81);
         private int squareNumb = 0;
+
         private Cell[,] _cells;
+
         private int[,] _sudokuArray;
-        private List<int> _available = new List<int>(81);
-        private readonly int CONTROL_NUMBER = 362880;
+
+        // private List<int> _available = new List<int>(81);
+        private readonly int CONTROL_NUMBER = 362880 * 9;
+
         private int sum = 1;
         public int counter = 0;
         public int loop = 0;
 
         public int?[,] _sudokuBoard = new int?[9, 9]
         {
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
-            {null,null,null,null,null,null,null,null,null },
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
+            {null, null, null, null, null, null, null, null, null},
         };
 
         public int?[,] _sudokuTemplate = new int?[9, 9]
         {
-            {2,null,null,6,null,7,5,null,null },
-            {null,8,null,3,null,4,null,9,6 },
-            {6,null,7,null,null,1,3,null,null },
-            {null,5,null,7,3,2,null,null,null },
-            {null,7,null,4,6,null,null,2,null },
-            {null,null,null,1,8,9,null,7,null },
-            {null,null,3,5,null,null,6,null,4 },
-            {8,4,null,null,1,null,2,null,7 },
-            {null,null,5,2,null,6,null,null,8 },
-
-            };
+            {2, null, null, 6, null, 7, 5, null, null},
+            {null, 8, null, 3, null, 4, null, 9, 6},
+            {6, null, 7, null, null, 1, 3, null, null},
+            {null, 5, null, 7, 3, 2, null, null, null},
+            {null, 7, null, 4, 6, null, null, 2, null},
+            {null, null, null, 1, 8, 9, null, 7, null},
+            {null, null, 3, 5, null, null, 6, null, 4},
+            {8, 4, null, null, 1, null, 2, null, 7},
+            {null, null, 5, 2, null, 6, null, null, 8},
+        };
 
         public int[,] _solvedTemplate = new int[9, 9]
         {
-             {2,3,4,6,9,7,5,8,1 },
-            {5,8,1,3,2,4,7,9,6 },
-            {6,9,7,8,5,1,3,4,2 },
-            {4,5,8,7,3,2,1,6,9 },
-            {1,7,9,4,6,5,8,2,3 },
-            {3,6,2,1,8,9,4,7,5 },
-            {9,2,3,5,7,8,6,1,4 },
-            {8,4,6,9,1,3,2,5,7 },
-            {7,1,5,2,4,6,9,3,8 },
-
+            {2, 3, 4, 6, 9, 7, 5, 8, 1},
+            {5, 8, 1, 3, 2, 4, 7, 9, 6},
+            {6, 9, 7, 8, 5, 1, 3, 4, 2},
+            {4, 5, 8, 7, 3, 2, 1, 6, 9},
+            {1, 7, 9, 4, 6, 5, 8, 2, 3},
+            {3, 6, 2, 1, 8, 9, 4, 7, 5},
+            {9, 2, 3, 5, 7, 8, 6, 1, 4},
+            {8, 4, 6, 9, 1, 3, 2, 5, 7},
+            {7, 1, 5, 2, 4, 6, 9, 3, 8},
         };
-
 
 
         public Board()
@@ -77,11 +78,11 @@ namespace Sudoku
 
             _cells = new Cell[9, 9];
 
-            StackPanel verticalStackPanel = new StackPanel() { Orientation = Orientation.Vertical };
+            StackPanel verticalStackPanel = new StackPanel() {Orientation = Orientation.Vertical};
 
             for (int i = 0; i < 9; i++)
             {
-                StackPanel horizontalStackPanel = new StackPanel() { Orientation = Orientation.Horizontal };
+                StackPanel horizontalStackPanel = new StackPanel() {Orientation = Orientation.Horizontal};
 
                 for (int j = 0; j < 9; j++)
                 {
@@ -93,8 +94,6 @@ namespace Sudoku
             }
             this.CellContainer.Child = verticalStackPanel;
         }
-
-
 
 
         // Mój piękny algorytm do sudoku! Nie usuwać, kiedyś go naprawię by działał!!!!
@@ -165,9 +164,6 @@ namespace Sudoku
         //}
 
 
-
-
-
         //private Boolean conflicts(List<Square> squares, Square test)
         //{
         //    foreach (Square square in squares)
@@ -188,26 +184,26 @@ namespace Sudoku
 
         public Boolean check()
         {
-
-            int checkCounter = 0;
+            int checkSum = 1;
 
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    if (_cells[i, j].ToString().Equals( _solvedTemplate[i, j].ToString()))
+                    if (_cells[i, j] == null)
                     {
-                        checkCounter++;
+                        return false;
                     }
+                    checkSum *= int.Parse(_cells[i, j].CellListBox.Text);
 
+                    if (checkSum == CONTROL_NUMBER)
+                    {
+                        return true;
+                    }
                 }
             }
-            if (checkCounter == 81)
-            {
-                return true;
-            }
-            return false;
 
+            return false;
         }
 
 
@@ -220,7 +216,6 @@ namespace Sudoku
                     _cells[i, j].Content(_sudokuTemplate[i, j].ToString());
                 }
             }
-
         }
     }
 }
