@@ -7,7 +7,7 @@
              mc:Ignorable="d">
     <Border BorderThickness="1" BorderBrush="Black">
         <TextBox x:Name="CellListBox"
-             Width="108"
+             Width="74"
              Height="74"
              Text="{Binding CellContent}"
              FontSize="50"

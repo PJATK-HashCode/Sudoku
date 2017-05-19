@@ -23,7 +23,8 @@ namespace Sudoku
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static readonly Board Board = new Board();
+        private static Template _template = new Template();
+        private static readonly Board Board = new Board(_template);
 
         public MainWindow()
         {
@@ -45,18 +46,18 @@ namespace Sudoku
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    Board._sudokuBoard[i, j] = Board._sudokuTemplate[i, j];
+                   _template.SudokuBoard[i, j] = _template.SudokuTemplate[i, j];
                 }
             }
-            Board.fillBoard();
-            Board.counter++;
+            Board.FillBoard();
+            Board.Counter++;
         }
 
         private void Check_Game(object sender, RoutedEventArgs e)
         {
             if (IsGameStarted)
             {
-                MessageBox.Show(Board.check() ? "Gratulacje! Prawidłowe rozwiązanie!" : "Błąd. Spróbuj jeszcze raz");
+                MessageBox.Show(Board.Check() ? "Gratulacje! Prawidłowe rozwiązanie!" : "Błąd. Spróbuj jeszcze raz");
             }
         }
 

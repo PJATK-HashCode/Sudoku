@@ -18,7 +18,7 @@
                 BorderBrush="{DynamicResource MaterialDesignBackground}"
                 Width="Auto" />
 
-        <DockPanel Height="Auto" Width="Auto" VerticalAlignment="Bottom" Margin="0,15,0,0"
+        <DockPanel Height="Auto" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,15,0,0"
                    Background="{DynamicResource MaterialDesignPaper}">
 
             <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Nowa gra" Height="50" Width="275"
@@ -27,11 +27,8 @@
                     Click="New_Game" />
             <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Sprawdź" Height="50" Width="275"
                     FontSize="30" Margin="5,25,5,0"
-                    FontFamily="Helvetica" 
-                    Click="Check_Game"/>
-            <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Wyczyść planszę" Height="50"
-                    Width="275" FontSize="30" Margin="5,25,5,0"
-                    FontFamily="Helvetica" />
+                    FontFamily="Helvetica"
+                    Click="Check_Game" />
             <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Wyjdź" FontFamily="Helvetica"
                     Height="50" Width="275" FontSize="30" Margin="5,25,5,0"
 

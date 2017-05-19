@@ -30,27 +30,24 @@ namespace Sudoku
 
         public void Content(String s)
         {
-            this.CellListBox.Text = s;
+            CellListBox.Text = s;
         }
 
         private void CellListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (MainWindow.IsGameStarted)
-            {
-                NumberBoard numberBoard = new NumberBoard(this);
+            if (!MainWindow.IsGameStarted) return;
+            NumberBoard numberBoard = new NumberBoard(this);
 
-                _window = new Window()
-                {
-                    ResizeMode = ResizeMode.NoResize,
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                    WindowStyle = WindowStyle.None,
-                    Height = 211,
-                    Width = 211,
-                    Content = numberBoard
-                };
-                _window.ShowDialog();
-                    
-            }
+            _window = new Window()
+            {
+                ResizeMode = ResizeMode.NoResize,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStyle = WindowStyle.None,
+                Height = 211,
+                Width = 211,
+                Content = numberBoard
+            };
+            _window.ShowDialog();
         }
 
         public void CloseWindow()
@@ -58,6 +55,6 @@ namespace Sudoku
             _window.Close();
         }
 
-
+   
     }
 }
