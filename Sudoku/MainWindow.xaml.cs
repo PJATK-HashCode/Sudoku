@@ -1,20 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-
 
 namespace Sudoku
 {
@@ -23,8 +8,9 @@ namespace Sudoku
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static Template _template = new Template();
-        private static readonly Board Board = new Board(_template);
+        private new static readonly Template Template = new Template();
+        private static readonly Board Board = new Board(Template);
+        private Window _window;
 
         public MainWindow()
         {
@@ -35,7 +21,7 @@ namespace Sudoku
 
         private void InitializeBoard()
         {
-            this.BoardCointainer.Child = Board;
+            BoardCointainer.Child = Board;
         }
 
 
@@ -46,7 +32,7 @@ namespace Sudoku
             {
                 for (int j = 0; j < 9; j++)
                 {
-                   _template.SudokuBoard[i, j] = _template.SudokuTemplate[i, j];
+                    Template.SudokuBoard[i, j] = Template.SudokuTemplate[i, j];
                 }
             }
             Board.FillBoard();
@@ -55,17 +41,39 @@ namespace Sudoku
 
         private void Check_Game(object sender, RoutedEventArgs e)
         {
-            if (IsGameStarted)
-            {
-                MessageBox.Show(Board.Check() ? "Gratulacje! Prawidłowe rozwiązanie!" : "Błąd. Spróbuj jeszcze raz");
-            }
+            if (!IsGameStarted) return;
+            SetCheckButtonWindow(Board.Check()
+                ? "Gratulacje! Poprawnie rozwiązałęś planszę!"
+                : "Niestety, to nie jest prawidłowe rozwiązanie :<");
         }
 
-        public static bool IsGameStarted { get; private set; } = false;
+        private void SetCheckButtonWindow(string msg)
+        {
+            CheckButtonWindow checkButtonWindow =
+                new CheckButtonWindow(this) {EndGame = {Content = msg}};
+
+            _window = new Window()
+            {
+                ResizeMode = ResizeMode.NoResize,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStyle = WindowStyle.None,
+                Height = 75,
+                Width = 500,
+                Content = checkButtonWindow
+            };
+            _window.Show();
+        }
+
+        public static bool IsGameStarted { get; private set; }
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        public void CloseCheckButtonWindow()
+        {
+            _window.Close();
         }
     }
 }
