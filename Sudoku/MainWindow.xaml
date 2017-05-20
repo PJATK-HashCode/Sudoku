@@ -11,7 +11,7 @@
 
 
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"
-                Background="{DynamicResource MaterialDesignPaper}">
+                Background="{DynamicResource MaterialDesignPaper}" Height="Auto">
         <Image Width="Auto" Height="125" Source="resources/PJATK.png" VerticalAlignment="Top"
                HorizontalAlignment="Center" Margin="0,-20,0,35" />
         <Border x:Name="BoardCointainer" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Center"

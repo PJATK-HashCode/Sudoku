@@ -28,7 +28,7 @@ namespace Sudoku
             InitializeComponent();
         }
 
-        private void EndGame_Click(object sender, RoutedEventArgs e)
+        private void CheckButton_Click(object sender, RoutedEventArgs e)
         {
             _main.CloseCheckButtonWindow();
         }

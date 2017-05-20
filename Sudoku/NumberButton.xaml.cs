@@ -30,7 +30,7 @@ namespace Sudoku
 
         private void ButtonNumber_Click(object sender, RoutedEventArgs e)
         {
-            Cell.CellListBox.Text = ButtonNumber.Content.ToString();
+            Cell.CellTextBox.Text = ButtonNumber.Content.ToString();
             Cell.CloseWindow();
         }
     }

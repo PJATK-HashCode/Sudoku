@@ -30,7 +30,7 @@ namespace Sudoku
 
         public void Content(String s)
         {
-            CellListBox.Text = s;
+            CellTextBox.Text = s;
         }
 
         private void CellListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)

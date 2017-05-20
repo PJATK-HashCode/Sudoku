@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Sudoku"
              mc:Ignorable="d">
     <Border BorderThickness="1" BorderBrush="Black">
-        <TextBox x:Name="CellListBox"
+        <TextBox x:Name="CellTextBox"
              Width="74"
              Height="74"
              Text="{Binding CellContent}"

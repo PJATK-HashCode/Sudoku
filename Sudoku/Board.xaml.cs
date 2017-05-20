@@ -46,8 +46,8 @@ namespace Sudoku
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    if (string.IsNullOrEmpty(_cells[i, j].CellListBox.Text)) continue;
-                    if (_cells[i, j].CellListBox.Text == _template.SolvedTemplate[i, j].ToString())
+                    if (string.IsNullOrEmpty(_cells[i, j].CellTextBox.Text)) continue;
+                    if (_cells[i, j].CellTextBox.Text == _template.SolvedTemplate[i, j].ToString())
 
                     {
                         checkCounter++;
