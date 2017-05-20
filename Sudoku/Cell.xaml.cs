@@ -22,13 +22,16 @@ namespace Sudoku
     public partial class Cell : UserControl
     {
         private Window _window;
+
+        public int X { get; set; }
+        public int Y { get; set; }
      
         public Cell()
         {
             InitializeComponent();
         }
 
-        public void Content(String s)
+        public void Content(string s)
         {
             CellTextBox.Text = s;
         }
@@ -41,7 +44,9 @@ namespace Sudoku
             _window = new Window()
             {
                 ResizeMode = ResizeMode.NoResize,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStartupLocation = WindowStartupLocation.Manual,
+                Left=200,
+                Top = 450,
                 WindowStyle = WindowStyle.None,
                 Height = 211,
                 Width = 211,

@@ -30,7 +30,11 @@ namespace Sudoku
 
         private void ButtonNumber_Click(object sender, RoutedEventArgs e)
         {
-            Cell.CellTextBox.Text = ButtonNumber.Content.ToString();
+            var value = ButtonNumber.Content.ToString();
+            Cell.CellTextBox.Text = value;
+            var template = new Sudoku.Template();
+
+            Cell.CellTextBox.Background = value != template.SolvedTemplate[Cell.X, Cell.Y].ToString() ? Brushes.OrangeRed : Brushes.DarkSeaGreen;
             Cell.CloseWindow();
         }
     }
